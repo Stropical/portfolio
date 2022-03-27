@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
@@ -19,6 +20,7 @@
     "@web3-react/network-connector": "6.2.9",
     "@web3-react/walletconnect-connector": "6.2.13",
     "daisyui": "2.13.2",
+    "gh-pages": "^3.2.3",
     "loglevel": "1.8.0",
     "next": "12.1.1",
     "react": "17.0.2",
