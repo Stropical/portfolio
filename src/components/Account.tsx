@@ -5,7 +5,10 @@ export const Account = function Account() {
   const { account } = useWeb3React();
 
   return (
-    <div className="btn btn-ghost btn-sm rounded-btn">
+    <div 
+      className="btn btn-ghost btn-sm rounded-btn vfont"
+      style={{ textTransform: "uppercase" }}
+    >
       <span>Account</span>
       <span role="img" aria-label="robot">
         🤖

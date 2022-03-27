@@ -2,3 +2,253 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* My CSS */
+@font-face {
+  font-family: "Raleway";
+  src: url("/fonts/Raleway/Raleway-Light.ttf");
+  font-style: lighter;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("/fonts/Raleway/Raleway-Regular.ttf");
+  font-style: Medium;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("/fonts/Raleway/Raleway-Bold.ttf");
+  font-style: Bold;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@keyframes slidein {
+  from {
+    height: 1%;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+body > #root > div {
+  height: 100vh;
+}
+
+.space30 {
+  padding: 20px;
+  background-color: #0b0b0c;
+}
+
+.vfont {
+  font-family: "Raleway";
+  font-weight: 700;
+  color: rgb(172, 172, 172);
+}
+
+.header {
+  background-color: #0b0b0c;
+  padding: 10px;
+  display: flex;
+  float: right;
+  width: 100%;
+  padding-left: 20px;
+}
+
+.header-item {
+  color: #fff;
+  font-family: "Raleway";
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-right: 50px;
+}
+
+.hero-container {
+  width: 100%;
+  height: 100%;
+  background-color: #0b0b0c;
+  margin: 0;
+  display: flex;
+}
+
+.hero-left {
+  width: 45%;
+  height: 100%;
+  margin-left: 0px;
+  border-left: 0px;
+}
+
+.hero-right {
+  width: 52%;
+  height: 100%;
+  overflow: auto;
+}
+
+.hero-right::-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
+}
+
+.hero-title {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 0.1em;
+  height: 180px;
+  font-size: 140px;
+  font-weight: 300;
+  color: #fff;
+  margin-left: 50px;
+  padding: 20px;
+}
+
+.hero-subtitle {
+  width: 450px;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.5em;
+  font-weight: 700;
+  color: rgb(197, 197, 197);
+  margin-left: 80px;
+  margin-top: 40px;
+}
+
+.hero-desc {
+  width: 450px;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  color: rgb(134, 134, 134);
+  margin-left: 80px;
+  margin-top: 10px;
+}
+
+/* Project box */
+.project-box {
+  width: 100%;
+  height: 1500px;
+  display: grid;
+  grid-template-rows: repeat(3, 300px);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  margin-top: 20px;
+  grid-auto-flow: row;
+}
+
+.prj-space {
+  padding: 10px;
+  background-color: #0b0b0c;
+}
+
+.prj {
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  height: 0%;
+  background-color: #1a1a1f;
+  margin: auto;
+  border-radius: 15px;
+  overflow: hidden;
+
+  animation-duration: 2s;
+  animation-name: slidein;
+  animation-fill-mode: forwards;
+}
+
+.imgprj {
+  font-family: "Raleway", sans-serif;
+  width: 95%;
+  height: 0%;
+  background-color: #1a1a1f;
+  margin: auto;
+  border-radius: 15px;
+  overflow: hidden;
+
+  animation-duration: 1.5s;
+  animation-name: slidein;
+  animation-fill-mode: forwards;
+}
+
+.prj:nth-child(1) {
+  animation-delay: 1.25s;
+}
+.prj:nth-child(2) {
+  animation-delay: 1.5s;
+}
+.prj:nth-child(3) {
+  animation-delay: 1.75s;
+}
+.prj:nth-child(4) {
+  animation-delay: 2s;
+}
+.prj:nth-child(5) {
+  animation-delay: 2.25s;
+}
+.prj:nth-child(6) {
+  animation-delay: 2.5s;
+}
+.prj:nth-child(7) {
+  animation-delay: 2.75s;
+}
+.prj:nth-child(8) {
+  animation-delay: 3s;
+}
+
+.prj h1 {
+  font-size: 40px;
+  font-weight: 500;
+  color: #fff;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.prj h3 {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: rgb(172, 172, 172);
+  padding-left: 40px;
+  padding-top: 40px;
+}
+
+.prj p {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  font-weight: 300;
+  color: rgb(172, 172, 172);
+  padding-left: 40px;
+  padding-top: 10px;
+  height: 35%;
+  width: 85%;
+}
+
+.prj button {
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: rgb(172, 172, 172);
+  background-color: #24242b;
+  border-radius: 15px;
+  border: 0px;
+  margin-left: 30px;
+  width: 100px;
+  height: 10px;
+}
