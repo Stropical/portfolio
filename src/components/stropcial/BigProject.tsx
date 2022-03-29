@@ -1,4 +1,4 @@
-export const Project = function (props) {
+export const BigProject = function (props) {
     return( 
         <div className="prj" style={{
             gridColumnStart: props.xStart,
@@ -9,10 +9,10 @@ export const Project = function (props) {
             <h3>{props.category}</h3>
             <h1>{props.title}</h1>
             <p>{props.description}</p>
-            
-            <h4 >{props.date}</h4>
+            <div></div>
+            <h4 style={{marginTop: "10px"}}>{props.date}</h4>
         </div>
     )
 }
 
-export default Project;
+export default BigProject;
