@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
+    "deploy": "next build && next export && echo.> out/.nojekyll && git add out/ && git commit -m \"Deploy gh-pages\" && git subtree push --prefix out origin gh-pages",
     "lint:sol": "npx solhint 'contracts/**/*.sol'",
     "test": "mocha --exit --recursive"
   },
@@ -45,6 +46,8 @@
     "@typescript-eslint/eslint-plugin": "5.16.0",
     "@typescript-eslint/parser": "5.16.0",
     "autoprefixer": "10.4.4",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-define": "^2.0.1",
     "chai": "4.3.6",
     "dotenv": "16.0.0",
     "eslint": "8.12.0",
