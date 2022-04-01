@@ -57,7 +57,7 @@ export const Hero = function () {
                     <h1 className="hero-title typing">ETHAN</h1>
                     <h1 className="hero-title typing typing-1sd">MARREEL</h1>
                     <h2 className="hero-subtitle typing typing-2sd typing-fast"> ROBOTICS ENGINEER  SOFTWARE DEVELOPER  WATER POLO PLAYER </h2>
-                    <p className="hero-desc typing typing-4sd typing-extra-fast">I am an aspiring software engineer looking for a will to live. I am on a mission to create exoskeleton and prosthetic technology never done before. I've been developing software for 11 years, 3 with NodeJS, 5 with Unity. I am the head developer of the robotics team and teach kids how to code and use modern frameworks and technology.</p>
+                    <p className="hero-desc typing typing-4sd typing-extra-fast">I am an aspiring software engineer looking for a will to live. I am on a mission to create exoskeleton and prosthetic technology never done before. I&apos;ve been developing software for 11 years, 3 with NodeJS, 5 with Unity. I am the head developer of the robotics team and teach kids how to code and use modern frameworks and technology.</p>
                 </div>
                 <div className="hero-right">
                     <div className="project-box">
@@ -65,23 +65,24 @@ export const Hero = function () {
                             title="EVS MIDDLEWARE"
                             category="JAVASCRIPT | NPM | JEST"
                             description="Express video stream (EVS) is a middleware plugin I made that allows express to stream video. Statically feeding a whole video file can wreck bandwidth, so I built this to split a video into chunks display a video chunk by chunk. It includes a config where you can define video IDs and file paths and even dynamically add more videos. Project is fully unit tested with jest and uses Travis CI for testing on every commit."
-                            date="Mar. 1 2020"
+                            date="SEPT. 12 2021"
                             link="http://marreel.com"
+                            imgurl="/eng1.jpg"
                             yStart="1"
                             yEnd="3"
                         />
                         <Project 
-                            title="ROBOTICS TEAM (VEX)"
+                            title="ROBOTICS (VEX)"
                             category="EMBEDDED C++ | LEADERSHIP"
                             description="Repo for this years VEX Robotics team 75491. Primarily developed by me, but in the proccess I lead a team of people to create their own. These people joined with zero expirience coding and ended developing and contributing functional code on Github."
-                            date="Mar. 1 2020"
+                            date="SEPT. 2019 - CURRENT"
                             link="http://marreel.com"
                         />
                         <Project 
                             title="EXO ARM"
                             category="LINUX | C++ | FUSION"
                             description="An exoskeleton arm currently in development. Soft-body-nylon frame paired with a linear actuator for maximum comfort and mobility. Utilizes a hand built EMG circuit, and an Rasperry Pi running a C++ program to calculate output voltages."
-                            date="Mar. 1 2020"
+                            date="MAR. 22 2022 - CURRENT"
                             link="http://marreel.com"
                         />
                         <Project 

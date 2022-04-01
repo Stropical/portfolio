@@ -7,11 +7,6 @@ module.exports = {
   },
   extends: [
     "next",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
-    "prettier",
   ],
   globals: {
     Atomics: "readonly",

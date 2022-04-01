@@ -125,7 +125,7 @@ body > #root > div {
   font-size: 20px;
   letter-spacing: 0.5em;
   font-weight: 700;
-  color: rgb(197, 197, 197);
+  color: #c5c5c5;
   margin-left: 80px;
   margin-top: 40px;
 }
@@ -239,6 +239,15 @@ body > #root > div {
   padding-top: 50px;
 }
 
+.prj h5 {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: rgb(172, 172, 172);
+  padding-left: 40px;
+  padding-top: 5px;
+}
+
 .prj p {
   font-size: 12px;
   letter-spacing: 0.15em;
@@ -263,12 +272,13 @@ body > #root > div {
 
 .prj div {
   /*  */
-  width: 90%;
+  width: 88%;
   align-self: center;
   height: 47%;
-  background-color: #2e2e2e;
+ 
   margin-top: 10px;
-  margin-left: 30px;
+  margin-left: 35px;
+  border-radius: 15px;
 }
 
 .prj-large h4 {
