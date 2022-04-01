@@ -1,10 +1,10 @@
 const pathPrefix = process.env.NODE_ENV === 'production'
-? '/portfolio'
-: '';
+? ''
+: '/portfolio';
 
 module.exports = {
     assetPrefix: pathPrefix,
-    basepatch: "/portfolio",
+    basePath: "/portfolio",
     env: {
         pathPrefix,
     },
