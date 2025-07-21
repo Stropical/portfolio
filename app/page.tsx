@@ -46,7 +46,7 @@ export default function Page() {
                   <span className="text-gray-400">PORTLAND, OR</span>
                 </div>
                 <h1 className="text-6xl font-bold tracking-tighter md:text-8xl mb-6">
-                  ROBOTICS +
+                  ROBOTICS &
                   <br />
                   FULLSTACK
                   <br />
@@ -83,35 +83,50 @@ export default function Page() {
         </section>
 
         {/* Featured Projects Section */}
-        <section id="featured-projects" className="py-20">
+        <section id="featured-projects" className="py-32">
           <div className="container px-4">
-            <h2 className="text-3xl font-bold mb-12">FEATURED PROJECTS</h2>
-            <div className="space-y-16">
+            <h2 className="text-5xl font-bold mb-20">FEATURED PROJECTS</h2>
+            <div className="space-y-24">
               {/* 1) Image Left, Text Right */}
               <div className="md:flex md:items-center">
-                <div className="md:w-1/2">
-                  <Image
-                    src="/projects/vcrypt.jpg"
-                    alt="Vcrypt Financial Platform"
-                    width={600}
-                    height={400}
-                    className="rounded-lg"
-                  />
+                <div className="md:w-1/2 relative">
+                  <div className="relative w-full h-[500px] rounded-lg overflow-hidden">
+                    {/* First image - clipped diagonally, positioned to show center-right */}
+                    <Image
+                      src="/images/backtest.png"
+                      alt="Vcrypt Financial Platform"
+                      fill
+                      className="object-contain"
+                      style={{
+                        clipPath: 'polygon(0 0, 60% 0, 40% 100%, 0 100%)',
+                        objectPosition: '75% center'
+                      }}
+                    />
+                    {/* Second image - clipped diagonally, positioned to show center-left */}
+                    <Image
+                      src="/trademind.png"
+                      alt="TradeMind Platform"
+                      fill
+                      className="object-contain"
+                      style={{
+                        clipPath: 'polygon(60% 0, 100% 0, 100% 100%, 40% 100%)',
+                        objectPosition: '25% center'
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="md:w-1/2 md:pl-12 mt-8 md:mt-0">
-                  <h3 className="text-2xl font-bold mb-4">Vcrypt Financial Platform</h3>
-                  <p className="text-gray-300 mb-4">
-                    A Rust & Node.js–based algorithmic trading platform with ML-driven signal generation,
-                    sub-second order execution, and Proxmox-automated deployment—scaling from 1 to 100 accounts
-                    with sub-200 ms latency.
+                <div className="md:w-1/2 md:pl-16 mt-12 md:mt-0">
+                  <h3 className="text-4xl font-bold mb-6">Vcrypt Financial</h3>
+                  <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                    Startup software company developing financial software. Leading a team building a production grade NextJS web app and a second team building a Rust / C# / Python based algorithmic trading platform with ML-driven signal generation.
                   </p>
-                  <div className="row flex flex-col gap-2">
+                  <div className="row flex flex-row gap-16">
                     <Link href="/work/vcrypt" className="text-[#FF3366] font-semibold flex items-center">
-                      View Case Study <ArrowRight className="ml-2 h-4 w-4" />
+                      View Vcrypt <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
-
-                    <Link href="/work/vcrypt" className="text-[#FF3366] font-semibold flex items-center">
-                      View Case Study <ArrowRight className="ml-2 h-4 w-4" />
+    
+                    <Link href="https://trademind.pro" className="text-[#FF3366] font-semibold flex items-center">
+                      Try TradeMindPro <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </div>
 
@@ -123,17 +138,16 @@ export default function Page() {
                 <div className="md:w-1/2">
                   <Image
                     src="/images/exo_1.png"
-                    alt="Exo Skeleton Arm"
+                    alt="Exoskeleton Bicep"
                     width={600}
-                    height={400}
-                    className="rounded-lg"
+                    height={500}
+                    className="rounded-lg object-contain w-full h-[500px]"
                   />
                 </div>
-                <div className="md:w-1/2 md:pr-12 mt-8 md:mt-0">
-                  <h3 className="text-2xl font-bold mb-4">Exo Skeleton Arm</h3>
-                  <p className="text-gray-300 mb-4">
-                    A PyBullet-driven robotic exoskeleton arm, using realistic vine-grape interactions to
-                    train reinforcement learning models for precision harvesting in a vineyard simulation.
+                <div className="md:w-1/2 md:pr-16 mt-12 md:mt-0">
+                  <h3 className="text-4xl font-bold mb-6">Exoskeleton Bicep</h3>
+                  <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                    Nerve sensing exoskeletal bicep. 4-stage filtering circuit for nerve extraction, arduino and motor driver circuit control for actuation. High strength PVC and alumium design.
                   </p>
                   <Link href="/work/exo-skeleton-arm" className="text-[#FF3366] font-semibold flex items-center">
                     View Case Study <ArrowRight className="ml-2 h-4 w-4" />
@@ -148,16 +162,14 @@ export default function Page() {
                     src="/projects/hydrogen-engine.jpg"
                     alt="Hydrogen Engine Conversion"
                     width={600}
-                    height={400}
-                    className="rounded-lg"
+                    height={500}
+                    className="rounded-lg object-contain w-full h-[500px]"
                   />
                 </div>
-                <div className="md:w-1/2 md:pl-12 mt-8 md:mt-0">
-                  <h3 className="text-2xl font-bold mb-4">Hydrogen Engine Conversion</h3>
-                  <p className="text-gray-300 mb-4">
-                    A custom-built hydrogen-fuel conversion project, redesigning ignition and injection
-                    systems to run a combustion engine on clean hydrogen, including safety validation and
-                    performance benchmarking.
+                <div className="md:w-1/2 md:pl-16 mt-12 md:mt-0">
+                  <h3 className="text-4xl font-bold mb-6">E-Bike Battery & Control System</h3>
+                  <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                    Custom designed high power battery and control system for an electric bike. Integrated motor controllers, batteries, battery management systems, and custom firmware for efficient power management and performance.
                   </p>
                   <Link href="/work/hydrogen-engine" className="text-[#FF3366] font-semibold flex items-center">
                     View Case Study <ArrowRight className="ml-2 h-4 w-4" />

@@ -7,10 +7,9 @@ import type React from "react" // Added import for React
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Stephen Bowman - Senior UX & Product Designer",
+  title: "Ethan Marreel - Robotics and Full Stack Engineer",
   description:
-    "Senior UX & Product Designer with 6+ years delivering AI-driven, scalable, and compliant solutions across healthcare, telecom, aviation, and enterprise platforms.",
-  generator: "v0.dev",
+    "Robotics and Full Stack Engineer with 3+ years delivering ML-driven, low-latency, and production-grade solutions across financial trading, robotics simulation, embedded FPGA DSP, and healthcare compliance.",
 }
 
 export default function RootLayout({
