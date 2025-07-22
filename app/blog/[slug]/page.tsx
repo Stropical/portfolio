@@ -1,4 +1,4 @@
-import type React from "react"
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -6,52 +6,77 @@ import { ArrowLeft, Calendar, Clock, Share2, Linkedin, Twitter } from "lucide-re
 import Link from "next/link"
 import Image from "next/image"
 
-// This would typically come from a CMS or database
-async function getBlogPost(slug: string) {
-  // Mock data - in reality, this would fetch from your CMS
-  const posts = {
-    "design-systems-at-scale": {
-      title: "Building Design Systems at Scale: Lessons from Janssen Pharmaceuticals",
-      excerpt: "How we unified 18 pharmaceutical brands under a single, FDA-compliant design system",
-      content: `
-        <p>When I joined the Janssen Pharmaceuticals project at IBM iX, I was faced with a challenge that would define my approach to design systems forever. Eighteen different pharmaceutical brands, each with their own digital presence, all needing to comply with strict FDA regulations while maintaining their unique brand identities.</p>
-        
-        <h2>The Challenge</h2>
-        <p>The pharmaceutical industry is unforgiving when it comes to design. Every pixel is scrutinized by legal teams, every interaction must meet accessibility standards, and every piece of content must be compliant with FDA regulations. Yet, patients and healthcare providers still expect intuitive, modern experiences.</p>
-        
-        <p>Our challenge was to create a unified design system that could:</p>
-        <ul>
-          <li>Maintain brand distinctiveness across 18 pharmaceutical brands</li>
-          <li>Ensure 100% FDA compliance</li>
-          <li>Streamline development processes</li>
-          <li>Improve user experience consistency</li>
-        </ul>
-        
-        <h2>The Approach</h2>
-        <p>I led a team of 3 designers through a systematic approach that prioritized regulatory compliance without sacrificing user experience. We started with extensive stakeholder interviews, involving legal teams, brand managers, developers, and most importantly, end users.</p>
-        
-        <blockquote>
-          <p>"Regulatory design is unforgiving. Every pixel is scrutinized by lawyers. Clarity and structure win over 'coolness'—every time."</p>
-        </blockquote>
-        
-        <h2>Key Learnings</h2>
-        <p>Through this project, I discovered that constraint breeds creativity. The strict FDA guidelines actually helped us create more focused, user-centered solutions. When you can't rely on flashy animations or complex interactions, you're forced to focus on content hierarchy, accessibility, and clear communication.</p>
-        
-        <p>The success of this project led to an extended partnership with Janssen and has informed my approach to design systems ever since.</p>
-      `,
-      publishedAt: "2024-01-15",
-      readingTime: "8 min read",
-      tags: ["Design Systems", "Healthcare", "FDA Compliance", "Enterprise UX"],
-      author: "Stephen Bowman",
-      image:
-        "https://sjc.microlink.io/lb6PnrVoJlSjIWuX7CyOIoMFCW78cWbHFGCQP9uUYmz5ofv3y9SnR2NIks9iPw8UHHxogQQMMxj-xH47kVh6TA.jpeg",
-    },
-  }
-
-  return posts[slug as keyof typeof posts] || null
+type Post = {
+  title: string
+  excerpt: string
+  content: string
+  publishedAt: string
+  readingTime: string
+  tags: string[]
+  author: string
+  image: string
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+// 1. Centralized posts data
+const posts: Record<string, Post> = {
+  "design-systems-at-scale": {
+    title: "Building Design Systems at Scale: Lessons from Janssen Pharmaceuticals",
+    excerpt: "How we unified 18 pharmaceutical brands under a single, FDA-compliant design system",
+    content: `
+      <p>When I joined the Janssen Pharmaceuticals project at IBM iX, I was faced with a challenge that would define my approach to design systems forever. Eighteen different pharmaceutical brands, each with their own digital presence, all needing to comply with strict FDA regulations while maintaining their unique brand identities.</p>
+      
+      <h2>The Challenge</h2>
+      <p>The pharmaceutical industry is unforgiving when it comes to design. Every pixel is scrutinized by legal teams, every interaction must meet accessibility standards, and every piece of content must be compliant with FDA regulations. Yet, patients and healthcare providers still expect intuitive, modern experiences.</p>
+      
+      <p>Our challenge was to create a unified design system that could:</p>
+      <ul>
+        <li>Maintain brand distinctiveness across 18 pharmaceutical brands</li>
+        <li>Ensure 100% FDA compliance</li>
+        <li>Streamline development processes</li>
+        <li>Improve user experience consistency</li>
+      </ul>
+      
+      <h2>The Approach</h2>
+      <p>I led a team of 3 designers through a systematic approach that prioritized regulatory compliance without sacrificing user experience. We started with extensive stakeholder interviews, involving legal teams, brand managers, developers, and most importantly, end users.</p>
+      
+      <blockquote>
+        <p>"Regulatory design is unforgiving. Every pixel is scrutinized by lawyers. Clarity and structure win over 'coolness'—every time."</p>
+      </blockquote>
+      
+      <h2>Key Learnings</h2>
+      <p>Through this project, I discovered that constraint breeds creativity. The strict FDA guidelines actually helped us create more focused, user-centered solutions. When you can't rely on flashy animations or complex interactions, you're forced to focus on content hierarchy, accessibility, and clear communication.</p>
+      
+      <p>The success of this project led to an extended partnership with Janssen and has informed my approach to design systems ever since.</p>
+    `,
+    publishedAt: "2024-01-15",
+    readingTime: "8 min read",
+    tags: ["Design Systems", "Healthcare", "FDA Compliance", "Enterprise UX"],
+    author: "Stephen Bowman",
+    image:
+      "https://sjc.microlink.io/lb6PnrVoJlSjIWuX7CyOIoMFCW78cWbHFGCQP9uUYmz5ofv3y9SnR2NIks9iPw8UHHxogQQMMxj-xH47kVh6TA.jpeg",
+  },
+  // ...add more posts here as needed
+}
+
+// 2. Tell Next.js which slugs to pre-render
+export async function generateStaticParams() {
+  return Object.keys(posts).map((slug) => ({ slug }))
+}
+
+// 3. If you don't want any other slugs at runtime
+export const dynamicParams = false
+
+// 4. Helper to fetch a post by slug
+async function getBlogPost(slug: string): Promise<Post | null> {
+  return posts[slug] || null
+}
+
+// 5. The page component
+export default async function BlogPost({
+  params,
+}: {
+  params: { slug: string }
+}) {
   const post = await getBlogPost(params.slug)
 
   if (!post) {
@@ -60,7 +85,10 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
           <Link href="/blog">
-            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 bg-transparent">
+            <Button
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/10 bg-transparent"
+            >
               Back to Blog
             </Button>
           </Link>
@@ -86,13 +114,18 @@ export default async function BlogPost({ params }: { params: { slug: string } })
             <Link href="/#about" className="text-sm hover:text-gray-300">
               ABOUT
             </Link>
-            <Button className="bg-[#FF3366] text-white hover:bg-[#FF3366]/90">CONTACT</Button>
+            <Button className="bg-[#FF3366] text-white hover:bg-[#FF3366]/90">
+              CONTACT
+            </Button>
           </nav>
         </div>
       </header>
 
       <main className="container px-4 py-12 max-w-4xl">
-        <Link href="/blog" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-12 group">
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-12 group"
+        >
           <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
           BACK TO BLOG
         </Link>
@@ -100,20 +133,32 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         <article>
           {/* Hero Image */}
           <div className="relative aspect-video w-full overflow-hidden rounded-lg mb-8">
-            <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" priority />
+            <Image
+              src={post.image || "/placeholder.svg"}
+              alt={post.title}
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
           {/* Article Header */}
           <header className="mb-8">
             <div className="flex flex-wrap gap-2 mb-4">
               {post.tags.map((tag) => (
-                <Badge key={tag} variant="outline" className="border-[#FF3366]/30 text-gray-300">
+                <Badge
+                  key={tag}
+                  variant="outline"
+                  className="border-[#FF3366]/30 text-gray-300"
+                >
                   {tag}
                 </Badge>
               ))}
             </div>
 
-            <h1 className="text-5xl font-bold mb-6 leading-tight">{post.title}</h1>
+            <h1 className="text-5xl font-bold mb-6 leading-tight">
+              {post.title}
+            </h1>
 
             <div className="flex items-center gap-6 text-gray-400 mb-6">
               <div className="flex items-center gap-2">
@@ -139,13 +184,25 @@ export default async function BlogPost({ params }: { params: { slug: string } })
             <div className="flex items-center gap-4 pb-8 border-b border-white/10">
               <span className="text-sm text-gray-400">Share:</span>
               <div className="flex gap-2">
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-white"
+                >
                   <Linkedin className="h-4 w-4" />
                 </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-white"
+                >
                   <Twitter className="h-4 w-4" />
                 </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-white"
+                >
                   <Share2 className="h-4 w-4" />
                 </Button>
               </div>
@@ -187,16 +244,24 @@ export default async function BlogPost({ params }: { params: { slug: string } })
                 SB
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">Stephen Bowman</h3>
-                <p className="text-gray-400">Senior UX & Product Designer</p>
+                <h3 className="text-xl font-bold text-white">
+                  Stephen Bowman
+                </h3>
+                <p className="text-gray-400">
+                  Senior UX & Product Designer
+                </p>
               </div>
             </div>
             <p className="text-gray-300 mb-4">
-              Senior UX & Product Designer with 6+ years delivering AI-driven, scalable, and compliant solutions across
+              Senior UX & Product Designer with 6+ years delivering
+              AI-driven, scalable, and compliant solutions across
               healthcare, telecom, aviation, and enterprise platforms.
             </p>
             <div className="flex gap-2">
-              <Link href="https://www.linkedin.com/in/bowmanstephen" target="_blank">
+              <Link
+                href="https://www.linkedin.com/in/bowmanstephen"
+                target="_blank"
+              >
                 <Button
                   variant="outline"
                   size="sm"
@@ -225,9 +290,12 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="bg-gray-900 border-gray-800 hover:border-[#FF3366]/50 transition-all duration-300">
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">The Future of Design Systems</h3>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  The Future of Design Systems
+                </h3>
                 <p className="text-gray-300 mb-4">
-                  How AI is changing the way we build and maintain design systems at scale.
+                  How AI is changing the way we build and maintain design
+                  systems at scale.
                 </p>
                 <div className="flex items-center gap-4 text-sm text-gray-400">
                   <span>5 min read</span>
@@ -237,9 +305,12 @@ export default async function BlogPost({ params }: { params: { slug: string } })
             </Card>
             <Card className="bg-gray-900 border-gray-800 hover:border-[#FF3366]/50 transition-all duration-300">
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">UX in Regulated Industries</h3>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  UX in Regulated Industries
+                </h3>
                 <p className="text-gray-300 mb-4">
-                  Best practices for designing compliant user experiences in healthcare and finance.
+                  Best practices for designing compliant user experiences in
+                  healthcare and finance.
                 </p>
                 <div className="flex items-center gap-4 text-sm text-gray-400">
                   <span>7 min read</span>
@@ -253,27 +324,22 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         {/* Navigation */}
         <div className="flex justify-between items-center pt-8 border-t border-white/10">
           <Link href="/blog">
-            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 bg-transparent">
+            <Button
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/10 bg-transparent"
+            >
               <ArrowLeft className="mr-2 h-4 w-4" />
               All Posts
             </Button>
           </Link>
           <Link href="/#work">
-            <Button className="bg-[#FF3366] text-white hover:bg-[#FF3366]/90">View My Work</Button>
+            <Button className="bg-[#FF3366] text-white hover:bg-[#FF3366]/90">
+              View My Work
+            </Button>
           </Link>
         </div>
       </main>
 
-      <footer className="border-t border-white/10 py-8 mt-20">
-        <div className="container flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
-          <p className="text-sm text-gray-400">© 2024 STEPHEN BOWMAN. ALL RIGHTS RESERVED.</p>
-          <div className="flex items-center gap-4">
-            <Link href="mailto:bowman.stephen92@gmail.com" className="text-gray-400 hover:text-white text-sm">
-              bowman.stephen92@gmail.com
-            </Link>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

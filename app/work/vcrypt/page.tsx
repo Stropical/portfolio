@@ -31,12 +31,13 @@ export default function VcryptPage() {
               <Badge variant="outline" className="border-[#FF3366]/30 text-gray-300">ONNX</Badge>
               <Badge variant="outline" className="border-[#FF3366]/30 text-gray-300">Python</Badge>
               <Badge variant="outline" className="border-[#FF3366]/30 text-gray-300">C#</Badge>
+              <Badge variant="outline" className="border-[#FF3366]/30 text-gray-300">Typescript</Badge>
               <Badge variant="outline" className="border-[#FF3366]/30 text-gray-300">NextJS</Badge>
+              <Badge variant="outline" className="border-[#FF3366]/30 text-gray-300">Project Management</Badge>
             </div>
-            <h1 className="text-5xl font-bold mb-6">Vcrypt Financial Platform</h1>
+            <h1 className="text-5xl font-bold mb-6">Vcrypt Financial</h1>
             <p className="text-xl text-gray-300 leading-relaxed mb-8">
-              A comprehensive financial technology startup developing cutting-edge algorithmic trading systems and web applications. 
-              Leading multiple teams to build production-grade solutions for automated trading with ML-driven signal generation.
+             Financial software startup I started at Oregon State developing algorithmic trading software built for the futures market. Recruited 10+ employees and launched a production-grade trading platform. Split the company into two teams: one building a NextJS web app we called TradeMindPro and the other continuing on automated trading
             </p>
             <div className="flex gap-4">
               <Link href="https://trademind.pro" target="_blank">
@@ -70,6 +71,7 @@ export default function VcryptPage() {
               </p>
               <ul className="text-gray-300 leading-relaxed space-y-2">
                 <li>• Production-grade NextJS web application for user interfaces</li>
+                <li>• Market data routing engine for cost optimized data access</li>
                 <li>• High-performance algorithmic trading platform in Rust/C#/Python</li>
                 <li>• ML-driven signal generation using XGBoost and ONNX models</li>
                 <li>• Sub-200ms latency trading execution systems</li>
@@ -81,7 +83,7 @@ export default function VcryptPage() {
               <ul className="text-gray-300 leading-relaxed space-y-2">
                 <li>• <strong>Performance:</strong> Sub-second order execution with ML inference</li>
                 <li>• <strong>Scalability:</strong> Proxmox-automated deployment architecture</li>
-                <li>• <strong>Machine Learning:</strong> XGBoost models integrated via ONNX runtime</li>
+                <li>• <strong>Machine Learning:</strong> XGBoost + RL models integrated via ONNX runtime</li>
                 <li>• <strong>Languages:</strong> Rust for core trading engine, Python for ML, C# for APIs</li>
                 <li>• <strong>Frontend:</strong> Modern NextJS application with real-time data</li>
                 <li>• <strong>Infrastructure:</strong> Automated deployment and scaling systems</li>
@@ -94,26 +96,24 @@ export default function VcryptPage() {
             <h2 className="text-3xl font-bold mb-8">Technical Architecture</h2>
             <div className="space-y-8">
               <div className="border border-gray-800 rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-4 text-[#FF3366]">Trading Engine (Rust)</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#FF3366]">Trading Engine (Docker + Rust + C#)</h3>
                 <p className="text-gray-300 leading-relaxed">
                   The core trading engine is built in Rust for maximum performance and memory safety. 
                   It handles real-time market data processing, signal generation, risk management, and order execution. 
-                  The system integrates ONNX models for ML inference directly in the trading loop, achieving sub-200ms latency 
-                  from signal generation to order placement.
+                  The engine is containerized using Docker for easy deployment and scaling across multiple nodes. Our V2 architecture runs inside of NinjaTrader for enhanced connectivity, and runs a super fast ML pipeline.
                 </p>
               </div>
               
               <div className="border border-gray-800 rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-4 text-[#FF3366]">Machine Learning Pipeline</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#FF3366]">Machine Learning & Execution Pipeline (ONNX + Python + C#)</h3>
                 <p className="text-gray-300 leading-relaxed">
                   XGBoost models are trained on historical market data and converted to ONNX format for optimized inference. 
-                  The ML pipeline includes feature engineering, model training, validation, and deployment automation. 
-                  Models are continuously updated and A/B tested in live trading environments.
+                  The ML pipeline includes feature engineering, model training, validation. Signals are filtered by a custom risk management system to ensure only high-confidence trades are executed. Custom order management system built to ensure optimal pricing in every entry and exit.
                 </p>
               </div>
               
               <div className="border border-gray-800 rounded-lg p-6">
-                <h3 className="text-xl font-bold mb-4 text-[#FF3366]">Web Application (NextJS)</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#FF3366]">TradeMindPro (NextJS + Supabase)</h3>
                 <p className="text-gray-300 leading-relaxed">
                   The TradeMindPro web application provides real-time trading dashboards, portfolio management, 
                   and system monitoring. Built with NextJS, it features server-side rendering, real-time WebSocket 
@@ -128,15 +128,15 @@ export default function VcryptPage() {
             <h2 className="text-3xl font-bold mb-8">Results & Impact</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-[#FF3366] mb-2">&lt;200ms</div>
-                <div className="text-gray-300">Order Execution Latency</div>
+                <div className="text-4xl font-bold text-[#FF3366] mb-2">&lt;0.2ms</div>
+                <div className="text-gray-300">Order Generation Latency</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-[#FF3366] mb-2">1-100</div>
                 <div className="text-gray-300">Scalable Account Range</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-[#FF3366] mb-2">24/7</div>
+                <div className="text-4xl font-bold text-[#FF3366] mb-2">23/6</div>
                 <div className="text-gray-300">Automated Trading</div>
               </div>
             </div>

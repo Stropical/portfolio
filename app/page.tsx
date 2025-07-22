@@ -94,7 +94,7 @@ export default function Page() {
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="mailto:ethan.marreel@gmail.com">
+              <Link href="mailto:ethan@marreel.com">
                 <Button className="bg-[#FF3366] text-white hover:bg-[#FF3366]/90">
                   <Mail className="h-4 w-4 mr-2" />
                   CONTACT
@@ -172,8 +172,8 @@ export default function Page() {
                   variants={fadeInUp}
                   className="text-xl text-gray-300 max-w-2xl mb-8"
                 >
-                  3+ years delivering ML‑driven, low‑latency, and production‑grade solutions across financial trading, robotics simulation, embedded FPGA DSP, and healthcare compliance.
-                </motion.p>
+                  Leading and developing embeddded robotics solutions, full stack apps, cloud and team infra, and ML-driven algorithmic trading engines. 14 years of coding experience, 3+ years professionally. 
+                                  </motion.p>
                 <motion.div 
                   variants={fadeInUp}
                   className="flex gap-4"
@@ -294,7 +294,7 @@ export default function Page() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                   >
-                    Startup software company developing financial software. Leading a team building a production grade NextJS web app and a second team building a Rust / C# / Python based algorithmic trading platform with ML-driven signal generation.
+                    Startup software company developing financial software. Leading a team building a NextJS web app + Supabase backend, and a second team building Rust / C# / Python based algorithmic trading platform with ML-driven signal generation.
                   </motion.p>
                   <motion.div 
                     className="row flex flex-row gap-16"

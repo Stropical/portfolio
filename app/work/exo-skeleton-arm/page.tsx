@@ -56,9 +56,7 @@ export default function ExoskeletonArmPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                The exoskeleton bicep project represents a convergence of biomedical signal processing, 
-                mechanical engineering, and embedded systems. The device is designed to detect muscle nerve signals 
-                and provide mechanical assistance to enhance natural arm movement.
+                The exoskeleton bicep project was a challenge my junior year of highschool. Constrained on a budget of $50, I designed and laser cut plastic pieces connected by nylon for a mix of strength, comfort, and cost. I designed a system that could amplify bicep muscle contractions using a combination of signal processing and mechanical actuation. The goal was to create a lightweight, ergonomic device that could assist users with limited arm strength.
               </p>
               <ul className="text-gray-300 leading-relaxed space-y-2">
                 <li>• 4-stage analog filtering circuit for nerve signal extraction</li>
@@ -74,9 +72,8 @@ export default function ExoskeletonArmPage() {
                 <li>• <strong>Signal Processing:</strong> 4-stage bandpass and amplification</li>
                 <li>• <strong>Frequency Range:</strong> 10-500 Hz for EMG signals</li>
                 <li>• <strong>Microcontroller:</strong> Arduino with real-time processing</li>
-                <li>• <strong>Actuation:</strong> High-torque servo motor with gear reduction</li>
+                <li>• <strong>Actuation:</strong> High-torque linear actuator with driver board</li>
                 <li>• <strong>Materials:</strong> PVC frame with aluminum reinforcement</li>
-                <li>• <strong>Power:</strong> Rechargeable battery system</li>
               </ul>
             </div>
           </div>
