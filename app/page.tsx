@@ -111,9 +111,21 @@ export default function Page() {
           initial="initial"
           animate="animate"
           variants={staggerContainer}
-          className="flex min-h-[80vh] flex-col items-start justify-center px-4"
+          className="flex min-h-[80vh] flex-col items-start justify-center px-4 relative overflow-hidden"
         >
-          <div className="container">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/bg_2.jpg"
+              alt="Background"
+              fill
+              className="object-cover opacity-30"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
+          
+          <div className="container relative z-10">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <motion.div variants={staggerContainer}>
                 <motion.div 
