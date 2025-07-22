@@ -130,6 +130,7 @@ export default function Page() {
             <div className="absolute inset-0 bg-black/40" />
           </motion.div>
           
+          
           <div className="container relative z-10">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <motion.div variants={staggerContainer}>
