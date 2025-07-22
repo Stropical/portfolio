@@ -114,7 +114,12 @@ export default function Page() {
           className="flex min-h-[80vh] flex-col items-start justify-center px-4 relative overflow-hidden"
         >
           {/* Background Image */}
-          <div className="absolute inset-0 z-0">
+          <motion.div 
+            className="absolute inset-0 z-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
+          >
             <Image
               src="/bg_2.jpg"
               alt="Background"
@@ -123,7 +128,7 @@ export default function Page() {
               priority
             />
             <div className="absolute inset-0 bg-black/40" />
-          </div>
+          </motion.div>
           
           <div className="container relative z-10">
             <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -148,7 +153,7 @@ export default function Page() {
                     animate={{ 
                       textShadow: [
                         "0 0 0px #FF3366",
-                        "0 0 8px #FF3366",
+                        "0 0 0px #FF3366",
                         "0 0 0px #FF3366"
                       ]
                     }}
@@ -193,8 +198,6 @@ export default function Page() {
               >
                 <motion.div 
                   className="relative w-80 h-80 md:w-96 md:h-96"
-                  whileHover={{ scale: 1.02, rotate: 1 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
                 >
                   <Image
                     src="/pfp.jpg"
