@@ -51,7 +51,7 @@ export default function VcryptPage() {
 
           {/* Main Image */}
           <div className="mb-16">
-            <div className="relative w-full h-[500px] rounded-lg overflow-hidden">
+            <div className="relative w-full h-[700px] rounded-lg overflow-hidden">
               <Image
                 src="/images/backtest.png"
                 alt="Vcrypt Trading Platform Interface"
