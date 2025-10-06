@@ -639,7 +639,7 @@ export default function Page() {
           </div>
         </motion.section>
 
-        {/* Projects Section */}
+        {/* Projects Section
         <motion.section 
           id="work" 
           className="py-20 border-t border-white/10"
@@ -752,7 +752,7 @@ export default function Page() {
               ))}
             </motion.div>
           </div>
-        </motion.section>
+        </motion.section> */}
 
         {/* About Section */}
         <motion.section 
