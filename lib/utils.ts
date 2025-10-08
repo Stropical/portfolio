@@ -10,7 +10,8 @@ export function cn(...inputs: ClassValue[]) {
  */
 export function asset(path: string) {
   if (!path) return path
-  const base = process.env.NEXT_PUBLIC_BASE_PATH || ''
+  // Default to /portfolio so static exports deployed to GitHub Pages use the correct subpath
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || '/portfolio'
   // ensure single leading slash
   if (path.startsWith('/')) path = path.slice(1)
   return `${base}/${path}`.replace(/([^:]?)\/\//g, '$1/')

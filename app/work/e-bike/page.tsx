@@ -65,19 +65,17 @@ export default function EBikePage() {
                 <li>• Custom high-capacity lithium battery pack design</li>
                 <li>• Advanced Battery Management System (BMS) with cell balancing</li>
                 <li>• Intelligent motor controller with regenerative braking</li>
-                <li>• Custom firmware with multiple riding modes</li>
                 <li>• Integrated display and control interface</li>
               </ul>
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-6">Technical Specifications</h2>
               <ul className="text-gray-300 leading-relaxed space-y-2">
-                <li>• <strong>Battery:</strong> 48V, 20Ah lithium-ion pack (960Wh)</li>
-                <li>• <strong>Motor:</strong> 1000W brushless hub motor</li>
-                <li>• <strong>Range:</strong> 60+ miles on single charge</li>
-                <li>• <strong>Top Speed:</strong> 28 mph (45 km/h)</li>
+                <li>• <strong>Battery:</strong> 72V, 30Ah lithium-ion pack (up to 14kw discharge)</li>
+                <li>• <strong>Motor:</strong> 6000W brushless hub motor</li>
+                <li>• <strong>Range:</strong> 30+ miles on single charge</li>
+                <li>• <strong>Top Speed:</strong> 50+ mph</li>
                 <li>• <strong>Charging:</strong> Fast charging in 3-4 hours</li>
-                <li>• <strong>Weight:</strong> 55 lbs total bike weight</li>
               </ul>
             </div>
           </div>
@@ -89,7 +87,7 @@ export default function EBikePage() {
               <div className="border border-gray-800 rounded-lg p-6">
                 <h3 className="text-xl font-bold mb-4 text-[#FF3366]">Custom Battery Pack & BMS</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  The battery system features high-energy-density 18650 lithium cells arranged in a 13S6P 
+                  The battery system features high-energy-density 18650 lithium cells arranged in a 20S8P 
                   configuration for optimal voltage and capacity. Custom Battery Management System monitors 
                   individual cell voltages, temperatures, and current flow. Advanced balancing algorithms 
                   ensure maximum pack longevity and performance. Integrated protection circuits prevent 
@@ -124,16 +122,16 @@ export default function EBikePage() {
             <h2 className="text-3xl font-bold mb-8">Performance & Efficiency</h2>
             <div className="grid md:grid-cols-4 gap-8 mb-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-[#FF3366] mb-2">60+</div>
+                <div className="text-4xl font-bold text-[#FF3366] mb-2">30+</div>
                 <div className="text-gray-300">Miles Range</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-[#FF3366] mb-2">28mph</div>
+                <div className="text-4xl font-bold text-[#FF3366] mb-2">50+ mph</div>
                 <div className="text-gray-300">Top Speed</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-[#FF3366] mb-2">92%</div>
-                <div className="text-gray-300">System Efficiency</div>
+                <div className="text-4xl font-bold text-[#FF3366] mb-2">6.7kw</div>
+                <div className="text-gray-300">Max Power output</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-[#FF3366] mb-2">15%</div>
@@ -156,8 +154,6 @@ export default function EBikePage() {
                 <ul className="text-gray-300 leading-relaxed space-y-2">
                   <li>• Eco mode for maximum range</li>
                   <li>• Performance mode for maximum power</li>
-                  <li>• Custom user-configurable profiles</li>
-                  <li>• Walk-assist mode for low-speed maneuvering</li>
                 </ul>
               </div>
             </div>
@@ -181,7 +177,6 @@ export default function EBikePage() {
                 <ul className="text-gray-300 leading-relaxed space-y-2">
                   <li>• Ground fault detection and isolation</li>
                   <li>• Waterproof connectors and enclosures</li>
-                  <li>• EMC compliance for interference prevention</li>
                   <li>• Fail-safe motor control algorithms</li>
                 </ul>
               </div>
@@ -189,8 +184,8 @@ export default function EBikePage() {
                 <h3 className="text-xl font-bold mb-4">Mechanical Safety</h3>
                 <ul className="text-gray-300 leading-relaxed space-y-2">
                   <li>• Secure battery mounting system</li>
-                  <li>• Integrated lighting system</li>
-                  <li>• Brake sensor integration</li>
+                  <li>• Anti-theft and GPS tracking</li>
+                  <li>• EBrakes for triple brakes</li>
                   <li>• Robust weatherproof construction</li>
                 </ul>
               </div>

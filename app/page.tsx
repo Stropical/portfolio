@@ -263,7 +263,7 @@ export default function Page() {
                 >
                   <div className="relative w-full h-[500px] md:h-[650px] rounded-lg overflow-hidden">
                     <Image
-                      src="/images/e-bike.JPG"
+                      src={asset('/images/e-bike.JPG')}
                       alt="E‑Bike"
                       fill
                       className="object-cover"
@@ -342,7 +342,7 @@ export default function Page() {
                 >
                   <div className="relative w-full h-[500px] md:h-[650px] rounded-lg overflow-hidden">
                     <Image
-                      src="/images/exo_1.png"
+                      src={asset('/images/exo_1.png')}
                       alt="Exoskeleton Bicep"
                       fill
                       className="object-cover w-full h-full"
@@ -870,7 +870,7 @@ function ProjectCard({ title, subtitle, description, image, link, tags }: { titl
             transition={{ duration: 0.4 }}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10" />
-            <Image src={image} alt={title} fill className="object-cover opacity-60" />
+            <Image src={image.startsWith('/') ? asset(image) : image} alt={title} fill className="object-cover opacity-60" />
             <motion.div 
               className="absolute bottom-0 left-0 p-4 z-20"
               initial={{ opacity: 0, y: 20 }}
