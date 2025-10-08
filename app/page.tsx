@@ -1,5 +1,7 @@
 "use client"
 
+import { asset } from '@/lib/utils'
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -125,7 +127,7 @@ export default function Page() {
               ref={(el) => {
               if (el) el.playbackRate = 1.25;
               }}
-              src="/bg.mp4"
+              src={asset('/bg.mp4')}
               autoPlay
               muted
               loop
@@ -214,7 +216,7 @@ export default function Page() {
                   className="relative w-80 h-80 md:w-96 md:h-96"
                 >
                   <Image
-                    src="/pfp.jpg"
+                      src={asset('/pfp.jpg')}
                     alt="Ethan Marreel"
                     fill
                     className="object-cover rounded-full border-4 border-[#FF3366]/20"
@@ -401,7 +403,7 @@ export default function Page() {
                   transition={{ duration: 0.3 }}
                 >
                   <Image
-                    src="/images/robotics.png"
+                    src={asset('/images/robotics.png')}
                     alt="Tualatin Robotics"
                     width={1200}
                     height={800}

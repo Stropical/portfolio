@@ -30,7 +30,7 @@ jobs:
 
       - name: Build and export
         run: |
-          bun run build
+          NEXT_PUBLIC_BASE_PATH='/portfolio' bun run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
