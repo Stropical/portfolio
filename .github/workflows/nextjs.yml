@@ -30,8 +30,7 @@ jobs:
 
       - name: Build and export
         run: |
-          bunx next build
-          bunx next export
+          bun run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
