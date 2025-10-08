@@ -123,18 +123,29 @@ export default function Page() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.8, ease: "easeOut" }}
             >
-            <video
-              ref={(el) => {
-              if (el) el.playbackRate = 1.25;
-              }}
-              src={asset('/bg.mp4')}
-              autoPlay
-              muted
-              loop
-              className="object-cover opacity-40 w-full h-full "
-            />
-            {/* Bottom fade overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent to-[30%] opacity-80" />
+       
+            <div style={{ paddingTop: "56.25%", position: "relative" }} className="object-cover opacity-40 w-full h-full">
+              {/* Preconnect/prefetch to speed up establishing connections to Vimeo CDN */}
+              <link rel="preconnect" href="https://player.vimeo.com" crossOrigin="" />
+              <link rel="preconnect" href="https://i.vimeocdn.com" crossOrigin="" />
+              <link rel="dns-prefetch" href="https://player.vimeo.com" />
+
+              <iframe
+                src="https://player.vimeo.com/video/1125630153?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1&quality=360p"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                title="bg"
+                // Hint browser this resource is high priority
+                // Keep fullscreen allowed
+                importance="high"
+                allowFullScreen
+              />
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
+            {/* Bottom fade overlay (bottom 10%) */}
+            <div className="absolute inset-x-0 bottom-0 h-[10%] pointer-events-none" style={{background: "linear-gradient(to top, rgba(0,0,0,0.8), transparent)"}} />
             {/* Vignette effect */}
             <div 
               className="absolute inset-0 opacity-40"
@@ -145,6 +156,7 @@ export default function Page() {
             <div className="absolute inset-0 bg-black/40" />
             </motion.div>
           
+
           
           <div className="container relative z-10">
             <div className="grid md:grid-cols-2 gap-8 items-center">
